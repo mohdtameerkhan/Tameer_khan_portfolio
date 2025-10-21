@@ -4,7 +4,7 @@ import cssLogo from '../assets/images.png';
 import jsLogo from '../assets/js.png';
 import framerLogo from '../assets/framer.png';
 import reactLogo from '../assets/React.png';
-import TailwindLogo from '../assets/Tailwind.webp';
+
 
 
 
@@ -15,7 +15,7 @@ export default function FloatingLogos() {
   { id: 'framer', label: 'framer', size: 100, bg: '', src: framerLogo },
   { id: 'js', label: 'JS', size: 100, bg: '', src: jsLogo },
   { id: 'react', label: 'React', size: 90, bg: '', src: reactLogo },
-  { id: 'Tailwind', label: 'Tailwind', size: 70, bg: '', src: TailwindLogo }
+
   
 ];
 
