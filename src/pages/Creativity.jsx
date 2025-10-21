@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import img1 from '../assets/img4.png';
+import img1 from '../assets/Img4.png';
 import img2 from '../assets/IMG_7168.png';
 import img3 from '../assets/IMG3.png';
 import img5 from '../assets/img5.png';
