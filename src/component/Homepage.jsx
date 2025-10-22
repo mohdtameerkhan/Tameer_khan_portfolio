@@ -16,7 +16,7 @@ export default function AboutCard() {
   className="md:w-1/2 w-full 
   relative text-white p-6 rounded-2xl 
   flex flex-col justify-evenly items-center
-  bg-gradient-to-br from-[var(--txt-color)] via-[var(--btn-color)] to-[var(--txt-color)]
+  bg-linear-to-br from-(--txt-color) via-(--btn-color) to-(--txt-color)
   shadow-[0_10px_25px_rgba(0,0,0,0.8)]
   transform transition-all duration-500
   hover:-translate-y-2 hover:scale-[1.02]
@@ -79,9 +79,9 @@ export default function AboutCard() {
             websites using React, Tailwind CSS, and modern JavaScript — focusing on clean design and
             smooth user experience.
           </p>
-          <button className="border cursor-pointer border-sky-700 p-2 w-[50%] mx-auto hover:bg-sky-700 hover:text-white transition">
+          <a href="https://wa.me/+96560665636" target='_blank' className="border cursor-pointer border-sky-700 p-2 w-[50%] mx-auto hover:bg-sky-700 hover:text-white text-center transition">
             SAY hi!
-          </button>
+          </a>
         </div>
 
       </div>
