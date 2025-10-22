@@ -39,30 +39,29 @@ export default function AboutCard() {
 
   <ul className="flex justify-center gap-5 text-3xl mt-4">
   <a
-    href="#"
+    href="https://www.linkedin.com/in/mohd-tameer-khan-479b39184/" target='_blank'
     className="relative group"
   >
     <TiSocialLinkedin className="transition-transform duration-300 transform group-hover:scale-125 group-hover:rotate-6 text-[#0077B5]" />
   </a>
 
   <a
-    href="#"
+    href="https://wa.me/+96560665636" target='_blank'
     className="relative group"
   >
     <FaWhatsappSquare className="transition-transform duration-300 transform group-hover:scale-125 group-hover:rotate-6 text-[#25D366]" />
   </a>
 
   <a
-    href="#"
+    href="https://twitter.com/MohdTameer" target='_blank'
     className="relative group"
   >
     <FaXTwitter className="transition-transform duration-300 transform group-hover:scale-125 group-hover:rotate-6 text-[#1DA1F2]" />
   </a>
 
   <a
-    href="#"  
-    className="relative group"
-  >
+    href="https://www.instagram.com/md_.tameer/" target='_blank' 
+    className="relative group">
     <FaInstagram className="transition-transform duration-300 transform group-hover:scale-125 group-hover:rotate-6 text-[#C13584]" />
   </a>
 </ul>
