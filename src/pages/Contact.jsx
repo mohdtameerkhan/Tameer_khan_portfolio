@@ -9,6 +9,8 @@ export default function Contact() {
     message: "",
   });
 
+  const [loading, setLoading] = useState(false); // 🔄 Added loading state
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
@@ -16,6 +18,7 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // Start loading
 
     const scriptURL =
       "https://script.google.com/macros/s/AKfycbyZVJDnsgWtdxnZi_SB4NYD8JoKwnPBZfwWIg8WS44uYyUaOmV2YLeE4WT10fq61q0z/exec";
@@ -28,17 +31,16 @@ export default function Contact() {
 
       const response = await fetch(scriptURL, {
         method: "POST",
-        body: form, // ✅ Send FormData instead of JSON
+        body: form,
       });
 
-      if (response.ok) {
-        alert("Hey Its Me Tameer, I will revert you soon! 📩");
-        setFormData({ name: "", email: "", message: "" });
-      } else {
-        alert("❌ Failed to send message. Try again.");
-      }
+      // Show success message right after sending
+      alert("Hey! It's me Tameer, I will revert you soon! 📩");
+      setFormData({ name: "", email: "", message: "" });
     } catch (error) {
       alert("⚠️ Error: " + error.message);
+    } finally {
+      setLoading(false); // Stop loading
     }
   };
 
@@ -66,6 +68,7 @@ export default function Contact() {
         transition={{ duration: 0.6, delay: 0.2 }}
       >
         <h2 className="text-2xl font-semibold mb-4">Let's Connect</h2>
+
         <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
           <input
             type="text"
@@ -94,12 +97,35 @@ export default function Contact() {
             className="p-3 w-full rounded bg-[#a1d6e277] focus:outline-none focus:ring-2 focus:ring-blue-400"
             rows={6}
           ></textarea>
-          <button
+
+          {/* Button with smooth loading animation */}
+          <motion.button
             type="submit"
-            className="mt-2 p-3 bg-[#1995AD] text-white rounded hover:bg-[#107193] transition-colors"
+            disabled={loading}
+            whileHover={!loading ? { scale: 1.05 } : {}}
+            whileTap={!loading ? { scale: 0.95 } : {}}
+            className={`mt-2 p-3 rounded text-white transition-colors ${
+              loading
+                ? "bg-gray-400 cursor-not-allowed"
+                : "bg-[#1995AD] hover:bg-[#107193]"
+            }`}
           >
-            Send Message
-          </button>
+            {loading ? (
+              <motion.span
+                animate={{ rotate: 360 }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 1,
+                  ease: "linear",
+                }}
+                className="inline-block"
+              >
+                🔄 Sending...
+              </motion.span>
+            ) : (
+              "Send Message"
+            )}
+          </motion.button>
         </form>
       </motion.div>
     </div>
